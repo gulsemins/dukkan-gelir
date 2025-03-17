@@ -14,6 +14,7 @@ public interface ExpenseMapper {
     // DTO -> Entity
     ExpenseEntity toEntity(CreateExpenseDto createExpenseDto);
 
+    //kullanıcıya direkt entity göstermek iyi değil sadce seçtiğimiz verileri göstermek içim
     // Entity -> ResponseDto
     ExpenseResponseDto toExpenseResponseDto(ExpenseEntity expense);
 
