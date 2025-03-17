@@ -5,6 +5,7 @@ import com.dailywork.dukkan_gelir.dtos.ExpenseResponseDto;
 import com.dailywork.dukkan_gelir.entities.ExpenseEntity;
 import com.dailywork.dukkan_gelir.repository.ExpenseRepository;
 import com.dailywork.dukkan_gelir.service.expense.ExpenseService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +24,7 @@ private final ExpenseService expenseService;
         return expenseService.getAllExpenses();
 }
     @PostMapping
-    public ExpenseResponseDto addExpense(@RequestBody CreateExpenseDto createExpenseDto){
+    public ExpenseResponseDto addExpense(@Valid @RequestBody CreateExpenseDto createExpenseDto){
         return  expenseService.addExpense(createExpenseDto);
     }
 
