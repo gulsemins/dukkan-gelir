@@ -22,14 +22,22 @@ public class ExpenseService  {
 
 //burda kullanıcıya döndüreceğimiz şey expenseResponseDto bu fonksiyon dönüreceğimizin tipii olmalı yani expenseresponsedto
     public ExpenseResponseDto addExpense(CreateExpenseDto createExpenseDto){
-       // ExpenseEntity expense = new ExpenseEntity();
-       // expense.setAmount(createExpenseDto.getAmount());
-
+        // ExpenseEntity expense = new ExpenseEntity();
+        // expense.setAmount(createExpenseDto.getAmount());
         //ilk adım database kaydetmek ama database entitiy olarak kaydettiğimiz için create response u entitiye çeviriyoruz
+        // DTO -> Entity
         ExpenseEntity expense = expenseMapper.toEntity(createExpenseDto);
+        // Save Enity
         ExpenseEntity savedExpense = expenseRepository.save(expense);
-//Java da direkt dto yu database e kaydedemiyoruz entity e çevirmemiz gerekiyor.
-        return expenseMapper.toResponseDto(savedExpense);
+        //Java da direkt dto yu database e kaydedemiyoruz entity e çevirmemiz gerekiyor.
+        //Entity -> ResponseDto
+        return expenseMapper.toExpenseResponseDto(savedExpense);
+
+    }
+    public List<ExpenseResponseDto> getAllExpenses(){
+        List<ExpenseEntity> allExpenses = expenseRepository.findAll();
+
+        return expenseMapper.toExpenseResponseDtoList(allExpenses);
 
     }
 }
