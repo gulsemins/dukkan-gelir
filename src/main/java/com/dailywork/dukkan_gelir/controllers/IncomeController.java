@@ -3,6 +3,7 @@ package com.dailywork.dukkan_gelir.controllers;
 import com.dailywork.dukkan_gelir.dtos.CreateIncomeDto;
 import com.dailywork.dukkan_gelir.dtos.IncomeResponseDto;
 import com.dailywork.dukkan_gelir.service.expense.IncomeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,8 @@ public class IncomeController {
         return incomeService.getAllIncomes();
     }
     @PostMapping
-    public IncomeResponseDto addIncome(@RequestBody CreateIncomeDto createIncomeDto){
+    public IncomeResponseDto addIncome(@Valid @RequestBody CreateIncomeDto createIncomeDto){
         return incomeService.addIncome(createIncomeDto);
+
     }
 }
