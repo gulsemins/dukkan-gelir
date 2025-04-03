@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import lombok.*;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -22,5 +24,10 @@ public class IncomeService {
 
       return incomeMapper.toIncomeResponseDto(savedIncome);
 
+    }
+
+    public List<IncomeResponseDto> getAllIncomes( ){
+        List<IncomeEntity> allIncomes = incomeRepository.findAll();
+        return incomeMapper.toIncomeResponseDtoList(allIncomes);
     }
 }

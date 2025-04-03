@@ -20,5 +20,5 @@ public class IncomeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer amount;
-    private LocalDate date;
+
 }
