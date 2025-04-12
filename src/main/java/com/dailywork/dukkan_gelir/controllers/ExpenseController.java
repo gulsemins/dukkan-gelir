@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-
+@CrossOrigin(origins = "*")
 @RequestMapping("/expenses")
 @RequiredArgsConstructor
 public class ExpenseController
@@ -26,6 +26,10 @@ private final ExpenseService expenseService;
     @PostMapping
     public ExpenseResponseDto addExpense(@Valid @RequestBody CreateExpenseDto createExpenseDto){
         return  expenseService.addExpense(createExpenseDto);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteExpense(@PathVariable Long id) {
+        expenseService.deleteExpense(id);
     }
 
 }

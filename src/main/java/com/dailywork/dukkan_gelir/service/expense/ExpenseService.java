@@ -40,4 +40,7 @@ public class ExpenseService  {
         return expenseMapper.toExpenseResponseDtoList(allExpenses);
 
     }
+    public void deleteExpense(Long id){
+        expenseRepository.deleteById(id);
+    }
 }

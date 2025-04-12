@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/incomes")
 @RequiredArgsConstructor
 public class IncomeController {
@@ -24,5 +25,9 @@ public class IncomeController {
     public IncomeResponseDto addIncome(@Valid @RequestBody CreateIncomeDto createIncomeDto){
         return incomeService.addIncome(createIncomeDto);
 
+    }
+    @DeleteMapping("/{id}")
+    public void deleteIncome(@PathVariable Long id){
+        incomeService.deleteIncome(id);
     }
 }
