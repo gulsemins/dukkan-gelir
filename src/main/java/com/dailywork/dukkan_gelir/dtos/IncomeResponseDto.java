@@ -13,5 +13,7 @@ import java.time.LocalDate;
 public class IncomeResponseDto {
     private Long id;
     private Integer amount;
+    private LocalDate date;
+
 
 }

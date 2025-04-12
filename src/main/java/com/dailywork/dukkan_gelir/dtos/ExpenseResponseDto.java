@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 @Data
 public class ExpenseResponseDto {
-
+    private Long id;
     private Integer amount;
     private LocalDate date;
 
