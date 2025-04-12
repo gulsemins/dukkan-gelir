@@ -30,7 +30,7 @@ public class ExpenseService  {
         // Save Enity
         ExpenseEntity savedExpense = expenseRepository.save(expense);
         //Java da direkt dto yu database e kaydedemiyoruz entity e çevirmemiz gerekiyor.
-        //Entity -> ResponseDto
+
         return expenseMapper.toExpenseResponseDto(savedExpense);
 
     }
