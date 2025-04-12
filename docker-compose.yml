@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DB_URL: db
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: budget_db
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    #ports: - "5432:5432" !! bu riskli oluyor herkese açık olur senin database(docker compose bridge yaptığı için gerek kalmıyo bridge docker compose içinde kalıyorr)
