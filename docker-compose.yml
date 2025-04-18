@@ -1,7 +1,8 @@
 version: '3.8'
 services:
   app:
-    build: .
+   # build: . bunu normlade docker containerın image bu klasördeki dockerfileden gelcek demekk ama biz artık dockerhubdan alıyoruz
+    image: gulseminsevindi/dukkan-gelir
     ports:
       - "8080:8080"
     depends_on:
