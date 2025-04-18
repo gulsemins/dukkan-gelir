@@ -50,4 +50,4 @@ jobs:
           script: |
             cd /root/dukkan-gelir
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/dukkan-gelir:latest
-            docker-compose up -d app
+            docker compose up -d app
