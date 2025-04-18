@@ -23,6 +23,11 @@ private final ExpenseService expenseService;
     List<ExpenseResponseDto> getAllExpenses(){
         return expenseService.getAllExpenses();
 }
+@GetMapping("/test")
+String test(){
+        return "test CI/CD";
+}
+
     @PostMapping
     public ExpenseResponseDto addExpense(@Valid @RequestBody CreateExpenseDto createExpenseDto){
         return  expenseService.addExpense(createExpenseDto);
