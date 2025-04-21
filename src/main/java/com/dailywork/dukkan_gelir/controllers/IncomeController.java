@@ -17,9 +17,14 @@ public class IncomeController {
 
     private final IncomeService incomeService;
 
-    @GetMapping
-    List<IncomeResponseDto> getAllIncomes() {
+    @GetMapping("/all")
+    public List<IncomeResponseDto> getAllIncomes() {
+
         return incomeService.getAllIncomes();
+    }
+    @GetMapping("/{username}")
+    public List<IncomeResponseDto> getUserIncomes(@PathVariable String username){
+        return incomeService.getUserIncomes(username);
     }
     @PostMapping
     public IncomeResponseDto addIncome(@Valid @RequestBody CreateIncomeDto createIncomeDto){

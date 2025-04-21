@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class IncomeResponseDto {
     private Long id;
+    private String username;
     private Integer amount;
     private LocalDate date;
 

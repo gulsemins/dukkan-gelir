@@ -19,14 +19,15 @@ public class ExpenseController
 {
 private final ExpenseService expenseService;
 
-    @GetMapping
-    List<ExpenseResponseDto> getAllExpenses(){
+    @GetMapping("/all")
+    public List<ExpenseResponseDto> getAllExpenses(){
+
         return expenseService.getAllExpenses();
 }
-@GetMapping("/test")
-String test(){
-        return "test CI/CD";
-}
+    @GetMapping("/{username}")
+    public List<ExpenseResponseDto> getUserExpenses(@PathVariable String username){
+        return expenseService.getUserExpenses(username);
+    }
 
     @PostMapping
     public ExpenseResponseDto addExpense(@Valid @RequestBody CreateExpenseDto createExpenseDto){

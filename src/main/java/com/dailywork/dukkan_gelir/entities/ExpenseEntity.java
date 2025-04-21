@@ -19,6 +19,8 @@ public class ExpenseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String username;
+    private String category;
     private Integer amount;
 
 

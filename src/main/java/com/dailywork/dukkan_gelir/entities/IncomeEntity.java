@@ -19,6 +19,7 @@ public class IncomeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String username;
     private Integer amount;
     private LocalDate date;
 

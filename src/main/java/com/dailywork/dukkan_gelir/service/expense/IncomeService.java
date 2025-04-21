@@ -30,6 +30,10 @@ public class IncomeService {
         List<IncomeEntity> allIncomes = incomeRepository.findAll();
         return incomeMapper.toIncomeResponseDtoList(allIncomes);
     }
+    public List<IncomeResponseDto> getUserIncomes(String username){
+        List<IncomeEntity> incomes = incomeRepository.findByUsername(username);
+        return incomeMapper.toIncomeResponseDtoList(incomes);
+    }
 
     public void deleteIncome(Long id){
         incomeRepository.deleteById(id);

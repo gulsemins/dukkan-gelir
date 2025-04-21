@@ -38,8 +38,12 @@ public class ExpenseService  {
         List<ExpenseEntity> allExpenses = expenseRepository.findAll();
 
         return expenseMapper.toExpenseResponseDtoList(allExpenses);
-
     }
+    public List<ExpenseResponseDto> getUserExpenses(String username){
+        List<ExpenseEntity> expenses = expenseRepository.findByUsername(username);
+        return expenseMapper.toExpenseResponseDtoList(expenses);
+    }
+
     public void deleteExpense(Long id){
         expenseRepository.deleteById(id);
     }
