@@ -39,6 +39,7 @@ jobs:
           build-args: |
             DB_USERNAME=${{ secrets.DB_USERNAME }}
             DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+            JWT_SECRET=${{ secrets.JWT_SECRET }}
           
 
       - name: Deploy to VPS
