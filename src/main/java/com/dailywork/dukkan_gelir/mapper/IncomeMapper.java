@@ -4,6 +4,7 @@ import com.dailywork.dukkan_gelir.dtos.CreateIncomeDto;
 import com.dailywork.dukkan_gelir.dtos.IncomeResponseDto;
 import com.dailywork.dukkan_gelir.entities.IncomeEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
 public interface IncomeMapper {
     IncomeEntity toEntity(CreateIncomeDto createIncomeDto);
 
+    @Mapping(source = "user.username", target = "username")
     IncomeResponseDto toIncomeResponseDto(IncomeEntity entity);
 
     List<IncomeResponseDto> toIncomeResponseDtoList(List<IncomeEntity> incomes);

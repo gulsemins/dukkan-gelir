@@ -8,28 +8,35 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "expenses")
+@Table(name = "users")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class ExpenseEntity {
+@NoArgsConstructor
+public class UserEntity {
+
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
-    private String category;
-    private Integer amount;
+    @Column(unique = true, nullable = false)
+    private String username;
+    @Column(unique = true, nullable = false)
+    private String email;
+    private String password;
+
     @Column(name = "created_at")
     @CreationTimestamp
     private Date createdAt;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private UserEntity user;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<ExpenseEntity> expenses;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<IncomeEntity> incomes;
 }
